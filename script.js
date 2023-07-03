@@ -43,6 +43,51 @@ const questions = [
             { text: "9", correct: false},
             { text: "10", correct: false},
         ]
+    },
+    {
+        question: "Which of these players has never been on ReBirth?",
+        answers: [
+            { text: "MauG", correct: true},
+            { text: "MISTERSAS", correct: false},
+            { text: "Molites", correct: false},
+            { text: "KVIINK", correct: false},
+        ]
+    },
+    {
+        question: "On which hosting did the first two seasons of the server exist?",
+        answers: [
+            { text: "Craft-Host", correct: false},
+            { text: "SRVGame", correct: false},
+            { text: "BisectHosting", correct: false},
+            { text: "Minecraft Realms", correct: true},
+        ]
+    },
+    {
+        question: "What year did the discord community appear?",
+        answers: [
+            { text: "2021", correct: true},
+            { text: "2020", correct: false},
+            { text: "2022", correct: false},
+            { text: "2019", correct: false},
+        ]
+    },
+    {
+        question: "Which core has NEVER been used on the server?",
+        answers: [
+            { text: "Vanilla", correct: false},
+            { text: "Paper", correct: false},
+            { text: "Velocity", correct: true},
+            { text: "Fabric", correct: false},
+        ]
+    },
+    {
+        question: "Which of these people has ever been a server administrator",
+        answers: [
+            { text: "Foler123", correct: true},
+            { text: "UfallaXD", correct: false},
+            { text: "Cyber_Tr0tsky", correct: false},
+            { text: "Cbgt", correct: false},
+        ]
     }
 ];
 
@@ -64,7 +109,7 @@ function showQuestion(){
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+    questionElement.innerHTML = questionNo + "/" + questions.length + ". " + currentQuestion.question;
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
