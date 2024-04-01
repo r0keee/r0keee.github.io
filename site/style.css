@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 700;
+}
+
+header {
+    /* border: solid; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 15%;
+    position: absolute;
+    width: 100%;
+}
+
+header nav {
+    display: flex;
+    gap: 30px;
+}
+
+header h1 {
+    font-size: 40px;
+}
+
+header nav a{
+    text-decoration: none;
+    color: black;
+    padding: 8px 16px;
+    border-radius: 1rem;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+header nav a.opened {
+    background-color: #3943B7;
+    color: white
+}
+
+header nav a:hover {
+    background-color: #3943B7;
+    color: white
+}
