@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: white;
+    font-weight: 700;
+}
+
+body {
+    background-color: #050b10;
+}
+
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+.card {
+    width: 350px;
+    border-radius: 1rem;
+    border: 1px solid rgb(71, 77, 77);
+    margin: 0;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+li {
+    margin-left: 20px;
+}
+
+a {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    color: rgb(95, 95, 244);
+    text-decoration: none;
+}
+
+p {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+}
