@@ -13,9 +13,12 @@
             <h1>Смешные задания заказывали?</h1>
             <div class="task">
                 <div class="task-header">
-                    <h3>1.</h3>
-                    <h4 class="label-pink">ЕГЭ</h4>
-                    <h4 class="label-green">Мемные</h4>
+                    <div class="labels">
+                        <h3>3.</h3>
+                        <h4 class="label-pink">ЕГЭ</h4>
+                        <h4 class="label-green">Мемные</h4>
+                    </div>
+                    <h4>Автор: r0kee</h4>
                 </div>
                 <p style="margin-bottom: 5px;">Текстовый файл состоит не более чем из 10<sup>6</sup> символов латинского алфавита (A, B, C, ...).
                     Определите <strong>максимальное</strong> количество идущих подряд символов, среди которых символ <strong>Z</strong> или <strong>V</strong> встречается не более <strong>228</strong> раз.</p>
@@ -25,12 +28,55 @@
                 <br>
                 <div>
                     <input type="text" id ="task1-input" placeholder="Введи ответ здесь..."/> 
-                    <button onclick="check('task1', 124);">Проверить</button> 
+                    <button onclick="check('task1', 3793);">Проверить</button> 
                 </div>
                 <p style="margin-top: 5px;" id="task1-ans"></p>
             </div>
+            <div class="task">
+                <div class="task-header"></div>
+                <div class="task-header">
+                    <div class="labels">
+                        <h3>3.</h3>
+                        <h4 class="label-pink">ЕГЭ</h4>
+                        <h4 class="label-green">Мемные</h4>
+                    </div>
+                    <h4>Автор: r0kee</h4>
+                </div>
+                <p style="margin-bottom: 5px;">Текстовый файл состоит не более чем из 10<sup>6</sup> символов A, B, O.
+                    Определите <strong>максимальное</strong> количество символов непрерывной подпоследовательности, состоящей из идущих подряд групп символов <strong>ABOBA</strong> в указанном порядке. При этом в начале и в конце искомой последовательности группа символов <strong>ABOBA</strong> может быть неполной.</p>
+                <a class="download-button" href="./Files/24_2.txt" download>Файл 24_2.txt
+                    <i class="fas fa-download"></i>
+                </a>
+                <br>
+                <div>
+                    <input type="text" id ="task2-input" placeholder="Введи ответ здесь..."/> 
+                    <button onclick="check('task2', 10);">Проверить</button> 
+                </div>
+                <p style="margin-top: 5px;" id="task2-ans"></p>
+            </div>
+            <div class="task">
+                <div class="task-header">
+                    <div class="labels">
+                        <h3>3.</h3>
+                        <h4 class="label-pink">ЕГЭ</h4>
+                        <h4 class="label-green">Мемные</h4>
+                        <h4 class="label-red">Душные</h4>
+                    </div>
+                    <h4>Автор: r0kee</h4>
+                </div>
+                <p style="margin-bottom: 5px;">Текстовый файл состоит не более чем из 10<sup>6</sup> цифр (0, 1, 2, 3, ..., 9).
+                    Определите <strong>максимальное</strong> количество идущих подряд символов, среди которых комбинация символов <strong>1337</strong> встречается ровно <strong>2</strong> раза, а комбинация символов <strong>666</strong> не встречается совсем.</p>
+                <a class="download-button" href="./Files/24_3.txt" download>Файл 24_3.txt
+                    <i class="fas fa-download"></i>
+                </a>
+                <br>
+                <div>
+                    <input type="text" id ="task3-input" placeholder="Введи ответ здесь..."/> 
+                    <button onclick="check('task3', 4745);">Проверить</button> 
+                </div>
+                <p style="margin-top: 5px;" id="task3-ans"></p>
+            </div>
         </div>
-        <p id="debug"></p>
     </div>
     
 </body>

@@ -47,11 +47,16 @@ body {
     display: block;
 }
 
-.task-header {
+.labels {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 5px;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
 }
 
 .label-green {
@@ -68,6 +73,12 @@ body {
     border-radius: .55rem;
 }
 
+.label-red {
+    background-color: rgb(235, 118, 118);
+    color:rgb(56, 56, 56);
+    padding: 00 3px;
+    border-radius: .55rem;
+}
  
 h1 {
     text-align: center;
