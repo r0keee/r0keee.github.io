@@ -30,6 +30,45 @@ body {
     padding: 10px;
 }
 
+.card-wide {
+    width: 650px;
+    border-radius: 1rem;
+    border: 1px solid rgb(71, 77, 77);
+    margin: 0;
+    padding: 10px;
+}
+
+.task {
+    width: 550px;
+    border-radius: 1rem;
+    border: 1px solid rgb(71, 77, 77);
+    margin: 10px auto;
+    padding: 10px;
+    display: block;
+}
+
+.task-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.label-green {
+    background-color: rgb(171, 236, 252);
+    color:rgb(56, 56, 56);
+    padding: 00 3px;
+    border-radius: .55rem;
+}
+
+.label-pink {
+    background-color: rgb(252, 171, 233);
+    color:rgb(56, 56, 56);
+    padding: 00 3px;
+    border-radius: .55rem;
+}
+
+ 
 h1 {
     text-align: center;
 }
@@ -45,7 +84,57 @@ a {
     text-decoration: none;
 }
 
-p {
+.download-button {
+    font-family: "Jost", sans-serif;
+    background-color: white;
+    color: black;
+    padding: 0 5px;
+    border-radius: .5rem;
+    transition: all 0.25s;
+}
+
+.download-button:hover {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(255, 255, 255);
+}
+
+i {
+    color:black;
+}
+
+p, sup {
     font-family: 'Courier New', Courier, monospace;
     font-weight: 500;
+}
+
+input {
+    background-color: #050b10;
+    border: 1px solid rgb(71, 77, 77);
+    border-radius: .5rem;
+    padding: 5px 5px;
+    margin-top: 10px
+}
+
+button {
+    color: black;
+    background-color: rgb(233, 233, 233);
+    border: 1px;
+    border-radius: .5rem;
+    padding: 5px;
+}
+
+[correct] {
+    color: rgb(171, 250, 171);
+}
+
+[incorrect] {
+    color: rgb(235, 136, 136);
+}
+
+button:hover {
+    background-color: white;
+}
+
+button:active {
+    background-color: rgb(189, 189, 189);
 }
