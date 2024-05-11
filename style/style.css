@@ -121,6 +121,9 @@ p, sup {
 input {
     background-color: #050b10;
     border: 1px solid rgb(71, 77, 77);
+    width: 10rem;
+    height: 1.5rem;
+    font-size: 15px;
     border-radius: .5rem;
     padding: 5px 5px;
     margin-top: 10px
@@ -130,6 +133,8 @@ button {
     color: black;
     background-color: rgb(233, 233, 233);
     border: 1px;
+    font-size: 15px;
+    height: 2.1rem;
     border-radius: .5rem;
     padding: 5px;
 }
