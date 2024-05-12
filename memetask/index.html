@@ -159,9 +159,19 @@
                     <button onclick="check('task5', 708);">Проверить</button> 
                     <button onclick="showcode('task5');" style="display: none;" id="task5-cbutton">Решение</button> 
                 </div>
-                
                 <p style="margin-top: 5px;" id="task5-ans"></p>
                 <div id="task5-code" style="display: none;" class="code-block">
+                    <p>#решение методом двух указателей</p>
+                    <p>s = open('24_5.txt').readline()</p>
+                    <p>k, l, mn = 0, 0, float('inf')</p>
+                    <p>for r in range(len(s)):</p>
+                    <p>&nbsp k += s[r] == 'S' or s[r] == 'V' or s=[r] == 'O'</p>
+                    <p>&nbsp while k >= 123:</p>
+                    <p>&nbsp &nbsp k -= s[l] == 'S' or s[l] == 'V' or s[l] == 'O'</p>
+                    <p>&nbsp &nbsp l += 1</p>
+                    <p>&nbsp &nbsp if k == 123:</p>
+                    <p>&nbsp &nbsp &nbsp mn = min(mn, r-l+1)</p>
+                    <p>print(mn)</p>
                 </div>
             </div>
         </div>
