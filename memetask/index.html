@@ -65,8 +65,21 @@
                 <div>
                     <input type="text" id ="task2-input" placeholder="Введи ответ здесь..."/> 
                     <button onclick="check('task2', 12);">Проверить</button> 
+                    <button onclick="showcode('task2');" id="task2-cbutton" style="display: none;">Проверить</button> 
                 </div>
                 <p style="margin-top: 5px;" id="task2-ans"></p>
+                <div id="task2-code" style="display: none;" class="code-block">
+                    <p>s = open('24_2.txt').readline()</p>
+                    <p>s = s.replace('ABOBA', '*')</p>
+                    <p>l, mx = 0, float('-inf')</p>
+                    <p>for i in range(len(s)):</p>
+                    <p>&nbsp if s[i] == '*':</p>
+                    <p>&nbsp &nbsp l += 1</p>
+                    <p>&nbsp &nbsp mx = max(mx, l)</p>
+                    <p>&nbsp else:</p>
+                    <p>&nbsp &nbsp l = 0</p>
+                    <p>#получаем mx = 2, то есть 10 символов, но комбинация в конце/начале допускается неполная, поэтому смотрим наличие такой в файле: ABOBAABOBAAB - то есть 12 символов</p>
+                </div>
             </div>
             <div class="task">
                 <div class="task-header">
@@ -109,8 +122,47 @@
                 <div>
                     <input type="text" id ="task4-input" placeholder="Введи ответ здесь..."/> 
                     <button onclick="check('task4', 55576);">Проверить</button> 
+                    <button onclick="showcode('task4');" style="display: none;" id="task4-cbutton">Решение</button> 
                 </div>
                 <p style="margin-top: 5px;" id="task4-ans"></p>
+                <div id="task4-code" style="display: none;" class="code-block">
+                    <p>a = set()</p>
+                    <p>def f(x, k):</p>
+                    <p>&nbsp if k == 11:</p>
+                    <p>&nbsp &nbsp a.add(x)</p>
+                    <p>&nbsp &nbsp return</p>
+                    <p>&nbsp f(x+69, k+1)</p>
+                    <p>&nbsp f(x*228, k+1)</p>
+                    <p>&nbsp f(x-666, k+1)</p>
+                    <p>&nbsp if x%13==0:</p>
+                    <p>&nbsp &nbsp f(x//13, k+1)</p>
+                    <p>f(404, 0)</p>
+                    <p>print(len(a))</p>
+                </div>
+            </div>
+            <div class="task">
+                <div class="task-header">
+                    <div class="labels">
+                        <h3>5.</h3>
+                        <h4 class="label-pink">ЕГЭ</h4>
+                        <h4 class="label-green">Мемные</h4>
+                        <h4 class="label-red">Душные</h4>
+                    </div>
+                    <h4>Автор: r0kee</h4>
+                </div>
+                <p style="margin-bottom: 5px;">Текстовый файл состоит не более чем из 10<sup>6</sup> символов латинского алфавита (A, B, C, ...). Определите <strong>минимальное</strong> количество идущих подряд символов, среди которых символ S, V или O встречается не менее 123 раз.</p>
+                <a class="download-button" href="./Files/24_5.txt" download>Файл 24_5.txt
+                    <i class="fas fa-download"></i>
+                </a>
+                <div>
+                    <input type="text" id ="task5-input" placeholder="Введи ответ здесь..."/> 
+                    <button onclick="check('task5', 708);">Проверить</button> 
+                    <button onclick="showcode('task5');" style="display: none;" id="task5-cbutton">Решение</button> 
+                </div>
+                
+                <p style="margin-top: 5px;" id="task5-ans"></p>
+                <div id="task5-code" style="display: none;" class="code-block">
+                </div>
             </div>
         </div>
     </div>
