@@ -30,8 +30,21 @@
                 <div>
                     <input type="text" id ="task1-input" placeholder="Введи ответ здесь..."/> 
                     <button onclick="check('task1', 3793);">Проверить</button> 
+                    <button style="display: none;" id="task1-cbutton" onclick="showcode('task1');">Решение</button> 
                 </div>
                 <p style="margin-top: 5px;" id="task1-ans"></p>
+                <div id="task1-code" style="display: none;" class="code-block">
+                    <p>#решение методом двух указателей</p>
+                    <p>s = open('24_1.txt').readline()</p>
+                    <p>k, l, mx = 0, 0, float('-inf')</p>
+                    <p>for r in range(len(s)):</p>
+                    <p>&nbsp k += s[r] == 'Z' or s[r] == 'V'</p>
+                    <p>&nbsp while k > 228:</p>
+                    <p>&nbsp &nbsp k -= s[l] == 'Z' or s[l] == 'V'</p>
+                    <p>&nbsp &nbsp l += 1</p>
+                    <p>&nbsp mx = max(mx, r-l+1)</p>
+                    <p>print(mx)</p>
+                </div>
             </div>
             <div class="task">
                 <div class="task-header"></div>
@@ -107,15 +120,28 @@
     function check(id, answer) {
         let input = document.getElementById(id+'-input');
         let ans = document.getElementById(id+'-ans');
+        let cbutton = document.getElementById(id+'-cbutton');
         if (input.value == answer) {
             ans.innerHTML = 'Верно!';
             ans.setAttribute("correct", "");
             ans.removeAttribute("incorrect");
+            cbutton.style.display = "none";
         }
         else {
             ans.innerHTML = 'Неверно! Правильный ответ: ' + answer;
             ans.setAttribute("incorrect", "");
             ans.removeAttribute("correct");
+            cbutton.style.display = "inline-block";
+        }
+    }
+
+    function showcode(id) {
+        let codepaste = document.getElementById(id+'-code');
+        if (codepaste.style.display == "none") {
+            codepaste.style.display = "block";   
+        }
+        else {
+            codepaste.style.display = "none"; 
         }
     }
 </script>

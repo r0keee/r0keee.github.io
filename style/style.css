@@ -154,3 +154,9 @@ button:hover {
 button:active {
     background-color: rgb(189, 189, 189);
 }
+
+.code-block {
+    background-color: rgb(24, 24, 24);
+    padding: 10px;
+    border-radius: .75rem;
+}
