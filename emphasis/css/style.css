@@ -86,6 +86,16 @@ header h1 {
     background-color: rgb(233, 118, 141);
 }
 
+#progress {
+    max-width: fit-content;
+    line-height: 0;
+    color: rgba(0, 0, 0, 0.239);
+    /* border: 1px solid black;
+    width: 250px;
+    height: 10px;
+    border-radius: .75rem; */
+}
+
 @media (max-width:481px) {
     button {
         width: 280px;

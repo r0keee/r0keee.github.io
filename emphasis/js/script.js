@@ -4,12 +4,15 @@ const header_card = document.getElementById('header_card');
 const word_handler = document.getElementById('word');
 const ans_text = document.getElementById('ans');
 const main_button = document.getElementById('main-button');
+const progress = document.getElementById('progress');
+const bar = document.getElementById('bar');
 
 let data = '';
 let wordArray = [];
 let resWords = {};
 let current_index = 0;
 let correct = 0;
+let wordFinish = false;
 
 fetch("js/stresses.txt")
   .then((res) => res.text())
@@ -40,7 +43,15 @@ function generateRes() {
         let index = findStress(wordArray[i]);
         resWords[wordArray[i]] = index;
     }
+    shuffle();
     console.log(resWords);
+}
+
+function shuffle() {
+    for (let i = wordArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [wordArray[i], wordArray[j]] = [wordArray[j], wordArray[i]];
+    }
 }
 
 function setWord(index) {
@@ -79,6 +90,10 @@ function setWord(index) {
 }
 
 function checkStress(ind) {
+    if (wordFinish) {
+        return;
+    }
+
     if (ind == resWords[wordArray[current_index]]) {
         word_handler.setAttribute('correct', '');
         correct = correct + 1;
@@ -93,17 +108,19 @@ function checkStress(ind) {
     current_index += 1;
     console.log(current_index);
     main_button.style.display = "block";
+    wordFinish = true;
 }
 
 
 function check() {
-    generateRes();
     if (current_index == 0) {
         header_card.style.display = "block";
+        progress.style.display = "block";
         header_card.innerHTML = "Какое ударение в слове?";
         word_handler.style.display = "flex";
         main_button.innerHTML = "Дальше";
         correct = 0;
+        generateRes();
     }
     if (current_index != wordArray.length) {
         ui(true);
@@ -111,11 +128,13 @@ function check() {
         word_handler.removeAttribute("correct");
         word_handler.removeAttribute("incorrect");
         setWord(current_index);
+        bar.innerHTML = "№ " + (current_index+1).toString() + "/" + wordArray.length.toString();
         ans_text.style.display = "block";
     } 
     else { 
         main_button.innerHTML = "Начать Снова";
         header_card.innerHTML = "Правильно: " + correct.toString() + "/" + wordArray.length.toString();
+        progress.style.display = "none";
         word_handler.innerHTML = '';
         ans_text.style.display = 'none';
         word_handler.removeAttribute("correct");
@@ -124,6 +143,7 @@ function check() {
         correct = 0;
     }
     ans_text.innerHTML = '';
+    wordFinish = false;
 }
 
 function ui(open) {
