@@ -15,10 +15,16 @@ fetch("js/stresses.txt")
   .then((res) => res.text())
   .then((text) => {
         // console.log(text);
-        data = text;
+        data = text.normalize();
         wordArray = text.split('\n');
    })
   .catch((e) => console.error(e));
+normalizeAll();
+function normalizeAll() {
+    for (let i = 0; i < wordArray.length; i++) {
+        wordArray[i] = wordArray[i].normalize();
+    }
+}
 
 function findStress(line) {
     for (let i = 0; i < line.length; i++) {
@@ -29,6 +35,7 @@ function findStress(line) {
 }
 
 function generateRes() {
+    normalizeAll();
     for (let i = 0; i < wordArray.length; i++) {
         let index = findStress(wordArray[i]);
         resWords[wordArray[i]] = index;
@@ -37,11 +44,16 @@ function generateRes() {
 }
 
 function setWord(index) {
-    console.log("Setting Word");
+    if (wordArray[index].length > 11) {
+        word_handler.setAttribute("small", '');
+    }
+    else {
+        word_handler.removeAttribute("small");
+    }
     let s = '';
     let vowels = ['а', 'о', 'у', 'э', 'ы', 'я', 'ё', 'е', 'ю', 'и'];
     for (let i = 0; i < wordArray[index].length; i++) {
-        if (!vowels.includes(wordArray[index][i].toLowerCase())) {
+        if (!vowels.includes(wordArray[index][i].normalize().toLowerCase())) {
             s += wordArray[index][i].toUpperCase();
             console.log(s);
             if (i == wordArray[index].length-1) {
@@ -55,7 +67,7 @@ function setWord(index) {
         else {
             let newA = document.createElement("p");
             let newP = document.createElement("p");
-            newA.innerHTML = wordArray[index][i].toUpperCase();
+            newA.innerHTML = wordArray[index][i].normalize().toUpperCase();
             newP.innerHTML = s;
             newA.setAttribute('onclick', 'checkStress('+i.toString()+');');
             newA.setAttribute('class', 'vowel-button');
