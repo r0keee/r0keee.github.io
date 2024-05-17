@@ -74,6 +74,11 @@ header h1 {
     border-radius: .75rem;
 }
 
+#ans {
+    max-width: 350px;
+    text-align: center;
+}
+
 [small] p {
     font-size: 25px;
 }
@@ -111,5 +116,9 @@ header h1 {
 
     .wrapper {
         height: 72vh;
+    }
+
+    #ans {
+        max-width: 280px;
     }
 }

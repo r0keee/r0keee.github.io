@@ -13,6 +13,7 @@ let resWords = {};
 let current_index = 0;
 let correct = 0;
 let wordFinish = false;
+let incorrectWords = '';
 
 fetch("js/stresses.txt")
   .then((res) => res.text())
@@ -104,6 +105,7 @@ function checkStress(ind) {
         console.log('no');
         ans_text.innerHTML = "Неверно! Правильно: " + wordArray[current_index];
         word_handler.setAttribute('incorrect', '');
+        incorrectWords += wordArray[current_index] + " ";
     }
     current_index += 1;
     console.log(current_index);
@@ -120,6 +122,7 @@ function check() {
         word_handler.style.display = "flex";
         main_button.innerHTML = "Дальше";
         correct = 0;
+        incorrectWords = '';
         generateRes();
     }
     if (current_index != wordArray.length) {
@@ -130,19 +133,20 @@ function check() {
         setWord(current_index);
         bar.innerHTML = "№ " + (current_index+1).toString() + "/" + wordArray.length.toString();
         ans_text.style.display = "block";
+        ans_text.innerHTML = '';
     } 
     else { 
         main_button.innerHTML = "Начать Снова";
         header_card.innerHTML = "Правильно: " + correct.toString() + "/" + wordArray.length.toString();
         progress.style.display = "none";
+        if (incorrectWords != '')
+            ans_text.innerHTML = "Слова с ошибками: " + incorrectWords;
         word_handler.innerHTML = '';
-        ans_text.style.display = 'none';
         word_handler.removeAttribute("correct");
         word_handler.removeAttribute("incorrect");
         current_index = 0;
         correct = 0;
     }
-    ans_text.innerHTML = '';
     wordFinish = false;
 }
 
