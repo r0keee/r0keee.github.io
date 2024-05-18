@@ -113,6 +113,9 @@ function checkStress(ind) {
     wordFinish = true;
 }
 
+function getPercent() {
+    return Math.floor((correct/wordArray.length)*100);
+}
 
 function check() {
     if (current_index == 0) {
@@ -137,13 +140,26 @@ function check() {
     } 
     else { 
         main_button.innerHTML = "Начать Снова";
-        header_card.innerHTML = "Правильно: " + correct.toString() + "/" + wordArray.length.toString() + ' (' + Math.floor((correct/wordArray.length)*100).toString() + '%)';
+        header_card.innerHTML = "Правильно: " + correct.toString() + "/" + wordArray.length.toString() + ' (' + getPercent().toString() + '%)';
         progress.style.display = "none";
-        if (incorrectWords != '')
-            ans_text.innerHTML = "Слова с ошибками: " + incorrectWords;
-        else {
-            ans_text.innerHTML = '';
+        if (incorrectWords != '') {
+            if (getPercent() < 50) {
+                ans_text.innerHTML = "Не стоит расстариваться, еще можно наверстать! Слова с ошибками: " + incorrectWords;
+            }
+            if (getPercent() >= 50 && getPercent() < 75) {
+                ans_text.innerHTML = "Неплохо, но надо поднажать! Слова с ошибками: " + incorrectWords;
+            }
+            if (getPercent() >= 75 && getPercent() < 90) {
+                ans_text.innerHTML = "Круто, но стоит продолжать! Слова с ошибками: " + incorrectWords;
+            }
+            if (getPercent() >= 90 && getPercent() != 100) {
+                ans_text.innerHTML = "Близко к идеалу) Слова с ошибками: " + incorrectWords;
+            }
         }
+        else {
+            ans_text.innerHTML = 'Машина💪';
+        }
+        console.log(getPercent());
         word_handler.innerHTML = '';
         word_handler.removeAttribute("correct");
         word_handler.removeAttribute("incorrect");
