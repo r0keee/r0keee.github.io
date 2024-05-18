@@ -137,10 +137,13 @@ function check() {
     } 
     else { 
         main_button.innerHTML = "Начать Снова";
-        header_card.innerHTML = "Правильно: " + correct.toString() + "/" + wordArray.length.toString();
+        header_card.innerHTML = "Правильно: " + correct.toString() + "/" + wordArray.length.toString() + ' (' + Math.floor((correct/wordArray.length)*100).toString() + '%)';
         progress.style.display = "none";
         if (incorrectWords != '')
             ans_text.innerHTML = "Слова с ошибками: " + incorrectWords;
+        else {
+            ans_text.innerHTML = '';
+        }
         word_handler.innerHTML = '';
         word_handler.removeAttribute("correct");
         word_handler.removeAttribute("incorrect");
