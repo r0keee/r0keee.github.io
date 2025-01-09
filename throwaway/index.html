@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Throwaway</title>
+  <link rel="stylesheet" type="text/css" href="./css/style.css?v=1"/>
+</head>
+<body>
+  <div class="flex-container">
+    <div class="card">
+    <h1>Throwaway</h1>
+      <div id="create-note">
+        <textarea id="note" placeholder="Enter your text here..."></textarea>
+        <button id="generate">Create link</button>
+        <div class="result" id="link-container" style="width: 100%; overflow: scroll;"></div>
+      </div>
+      <div id="view-note" style="display: none;">
+        <h2>Your note:</h2>
+        <p id="note-content"></p>
+        <p><em>This note will no longer be available.</em></p>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js"></script>
+  <script type="module" src="./js/script.js"></script>
+</body>
+</html>
