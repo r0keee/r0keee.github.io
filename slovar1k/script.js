@@ -98,7 +98,7 @@ function initInput(word, tries) {
                 currentRow++;
                 currentCol = 0;
 
-                if ((guess.join("") === globalWord.toLowerCase()) || currentRow === globalWord.length) {
+                if ((guess.join("") === globalWord.toLowerCase()) || currentRow === globalTries) {
                     showResults();
                 }
             }
@@ -259,7 +259,7 @@ function onEnter() {
         currentRow++;
         currentCol = 0;
 
-        if ((guess.join("") === globalWord.toLowerCase()) || currentRow === globalWord.length) {
+        if ((guess.join("") === globalWord.toLowerCase()) || currentRow === globalTries) {
             showResults();
         }
     }
