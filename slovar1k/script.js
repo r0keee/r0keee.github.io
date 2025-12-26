@@ -17,6 +17,9 @@ let globalTries = 0;
 let currentRow = 0;
 let currentCol = 0;
 
+let DICTIONARY = new Set();
+let DICTIONARY_LOADED = false;
+
 results_menu.style.display = "none";
 
 word_input.addEventListener("input", () => {
@@ -83,6 +86,9 @@ function initInput(word, tries) {
         }
 
         if (key == "Enter") {
+            if (!DICTIONARY_LOADED) {
+                showMessage("Dictionary is not loaded yet");
+            }
             if (currentCol === letters) {
                 const guess = [];
                 for (let i = 0; i < letters; i++) {
@@ -91,6 +97,15 @@ function initInput(word, tries) {
 
                 console.log(`Input: ${guess.join("")}`)
 
+                if ((guess.join("") === globalWord.toLowerCase())) {
+                    showResults();
+                }
+
+                if (!DICTIONARY.has(normalize(guess.join("")))) {
+                    showMessage("There is no such word in game's dictionary");
+                    return;
+                }
+
                 const statuses = checkGuess(guess, word);
                 paintRow(currentRow, statuses);
                 updateKeyboard(guess, statuses);
@@ -98,12 +113,38 @@ function initInput(word, tries) {
                 currentRow++;
                 currentCol = 0;
 
-                if ((guess.join("") === globalWord.toLowerCase()) || currentRow === globalTries) {
+                if (currentRow === globalTries) {
                     showResults();
                 }
             }
         }
     });
+}
+
+function showMessage(text) {
+    const el = document.getElementById("message");
+    el.textContent = text;
+    el.classList.add("show");
+    
+    setTimeout(() => el.classList.remove("show"), 1500);
+}
+
+function loadDictionary(wordLength, word) {
+    const isCyrillic = /[а-яё]/i.test(word);
+    const file = isCyrillic ? "ru.txt" : "en.txt";
+
+    fetch(file)
+        .then(response => response.text())
+        .then(text => {
+            DICTIONARY = new Set(
+                text.split("\n").map(w => normalize(w.trim())).filter(w => w.length === wordLength)
+            );
+            DICTIONARY_LOADED = true;
+            console.log("dict loaded");
+        })
+        .catch(err => {
+            console.log("error with loading dict");
+        })
 }
 
 function showResults() {
@@ -244,6 +285,9 @@ function onBackspace() {
 
 function onEnter() {
     const grid = document.getElementById("grid");
+    if (!DICTIONARY_LOADED) {
+        showMessage("Dictionary is not loaded yet");
+    }
     if (currentCol === letters) {
         const guess = [];
         for (let i = 0; i < letters; i++) {
@@ -252,14 +296,23 @@ function onEnter() {
 
         console.log(`Input: ${guess.join("")}`)
 
-        const statuses = checkGuess(guess, globalWord);
+        if ((guess.join("") === globalWord.toLowerCase())) {
+            showResults();
+        }
+
+        if (!DICTIONARY.has(normalize(guess.join("")))) {
+            showMessage("There is no such word in game's dictionary");
+            return;
+        }
+
+        const statuses = checkGuess(guess, word);
         paintRow(currentRow, statuses);
         updateKeyboard(guess, statuses);
 
         currentRow++;
         currentCol = 0;
 
-        if ((guess.join("") === globalWord.toLowerCase()) || currentRow === globalTries) {
+        if (currentRow === globalTries) {
             showResults();
         }
     }
@@ -300,11 +353,16 @@ function goHome() {
     window.location.replace(currentUrl);
 }
 
+function normalize(word) {
+    return word.toLowerCase().replaceAll("ё", "e");
+}
+
 if (word_data != null) {
     settings_menu.style.display = "none";
     game_menu.style.display = "block";
 
     const { word, tries } = decodeWordData(word_data);
+    loadDictionary(normalize(word).length, normalize(word));
     globalWord = word;
     globalTries = tries;
     generateGrid(word, tries);
