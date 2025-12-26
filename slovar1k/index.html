@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>r0kee</title>
+    <link rel="stylesheet" type="text/css" href="./style.css?v=1"/>
+</head>
+<body>
+    <div class="container" id="game">
+        <h2>Words!</h2>
+        <div id="grid">
+        </div>
+        <div id="keyboard"></div>
+    </div>
+    <div class="container" id="settings">
+        <div class="card" id="settings">
+            <h1>Words!</h1>
+            <h2>Make a word for a friend.</h2>
+            <p style="color: #ffffff7f">Available languages: English, Russian</p>
+            <br>
+            <label>
+                Word (4-8 characters):
+            </label>
+            <input type="text" id="wordInput" maxlength="8">
+            <label>
+                Number of tries (2-9):
+            </label>
+            <input type="number" id="triesInput" min="2" max="9">
+            <button id="generateBtn">Generate link</button>
+
+            <div id="resultLink"></div>
+        </div>
+    </div>
+    <div class="container" id="results">
+        <div class="card" id="results">
+            <h1>Result</h1>
+            <h2 id="results-word"></h2>
+            <h2 id="results-tries"></h2>
+            <button onclick="goHome()">Home</button>
+        </div>
+    </div>
+</body>
+<script src="./script.js"></script>
+</html>

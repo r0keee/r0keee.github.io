@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: white;
+    font-weight: 700;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212;
+}
+
+.container {
+    width: 300px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+  
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 350px;
+    border-radius: 1rem;
+    border: 1px solid rgb(71, 77, 77);
+    margin: 0;
+    padding: 10px;
+}
+
+#grid {
+    display: grid;
+    gap: 6px;
+}
+
+.row {
+    display: grid;
+    gap: 6px;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+input {
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0);
+    border: 1px solid #aaa;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 12px;
+}
+
+button {
+    background: rgba(0, 0, 0, 0);
+    border-radius: 8px;
+    border: 1px solid #aaa;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.cell.correct {
+    background: #6aaa64;
+    color: white;
+}
+
+.cell.present {
+    background: #c9b458;
+    color: white;
+}
+
+.cell.absent {
+    background: #787c7e;
+    color: white;
+}
+
+#keyboard {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.kb-row {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+#keyboard button {
+    padding: 10px;
+    min-width: 32px;
+    border-radius: 6px;
+    border: none;
+    background: #ddd;
+    font-weight: bold;
+    color:rgb(71, 77, 77);
+}
+
+#keyboard button.correct {
+    background: #6aaa64;
+    color: white;
+}
+
+#keyboard button.present {
+    background: #c9b458;
+    color: white;
+}
+
+#keyboard button.absent {
+    background: #787c7e;
+    color: white;
+}
