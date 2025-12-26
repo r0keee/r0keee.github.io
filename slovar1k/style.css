@@ -43,6 +43,7 @@ body {
 
 #grid {
     display: grid;
+    justify-content: center;
     gap: 6px;
 }
 
