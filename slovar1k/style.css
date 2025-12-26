@@ -121,7 +121,8 @@ button:hover {
     border-radius: 6px;
     border: none;
     background: #ddd;
-    font-weight: bold;
+    font-weight: 900;
+    font-size: 12px;
     color:rgb(71, 77, 77);
 }
 
