@@ -305,7 +305,7 @@ function onEnter() {
             return;
         }
 
-        const statuses = checkGuess(guess, word);
+        const statuses = checkGuess(guess, globalWord);
         paintRow(currentRow, statuses);
         updateKeyboard(guess, statuses);
 
