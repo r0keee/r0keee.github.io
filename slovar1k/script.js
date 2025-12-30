@@ -285,6 +285,7 @@ function onBackspace() {
 
 function onEnter() {
     const grid = document.getElementById("grid");
+    const letters = globalWorld.length;
     if (!DICTIONARY_LOADED) {
         showMessage("Dictionary is not loaded yet");
     }
